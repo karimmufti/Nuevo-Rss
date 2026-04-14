@@ -1,0 +1,40 @@
+<!--
+  WHAT: The HTML shell that loads the React application.
+  WHY:  Every web app needs an HTML file as its entry point. The browser loads this first,
+        then Vite injects the React JavaScript bundle. The <div id="root"> is where React
+        mounts its component tree.
+  HOW:  Vite serves this file at http://localhost:5173. The <script> tag points to our
+        React entry point (main.tsx). Vite handles the TypeScript compilation automatically.
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Live RSS News Terminal</title>
+
+    <!-- Set the page background immediately to avoid a white flash before React loads -->
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: #0a0a0a;
+      }
+    </style>
+  </head>
+  <body>
+    <!--
+      This empty div is the "mount point" for React.
+      React will take control of this div and render our entire UI inside it.
+      The id="root" is a convention — React needs a DOM element to attach to.
+    -->
+    <div id="root"></div>
+
+    <!--
+      This script tag tells Vite where our app's JavaScript starts.
+      Vite sees the .tsx extension and automatically compiles TypeScript + JSX to JavaScript.
+      The "type=module" attribute tells the browser to treat this as an ES module (modern JS).
+    -->
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

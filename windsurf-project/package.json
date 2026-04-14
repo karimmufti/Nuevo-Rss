@@ -1,0 +1,26 @@
+{
+  "name": "live-rss-terminal-server",
+  "version": "1.0.0",
+  "description": "V2 — Express server with Redis for persistent article storage and deduplication",
+  "scripts": {
+    "dev": "tsx watch server/index.ts",
+    "ingest": "tsx watch server/ingest.ts"
+  },
+  "dependencies": {
+    "@clickhouse/client": "^1.18.2",
+    "@opensearch-project/opensearch": "^3.5.1",
+    "@types/ws": "^8.18.1",
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "ioredis": "^5.4.2",
+    "kafkajs": "^2.2.4",
+    "rss-parser": "^3.13.0",
+    "ws": "^8.20.0"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.3"
+  }
+}

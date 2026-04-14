@@ -1,0 +1,158 @@
+/**
+ * WHAT: Global CSS — animations, scrollbar, hover effects, and pseudo-elements.
+ * WHY:  Some visual effects can't be done with React inline styles.
+ * HOW:  Imported in App.tsx.
+ */
+
+/* --- Animations --- */
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(3px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Live Pulse Dot --- */
+.live-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #22c55e;
+  animation: pulse 2s ease-in-out infinite;
+  margin-right: 2px;
+}
+
+/* --- Offline Dot (WebSocket disconnected) --- */
+.live-dot-off {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #ef4444;
+  margin-right: 2px;
+}
+
+/* --- Article Rows --- */
+.article-row {
+  animation: fadeIn 0.2s ease-out;
+}
+
+.article-row:hover {
+  background-color: #18181b !important;
+}
+
+.article-row:hover .article-link {
+  color: #fafafa !important;
+}
+
+/* --- Search Input --- */
+.search-input::placeholder {
+  color: #52525b;
+}
+
+.search-input:focus::placeholder {
+  color: #3f3f46;
+}
+
+/* --- Clear Button --- */
+.clear-btn:hover {
+  background-color: #3f3f46 !important;
+  color: #fafafa !important;
+}
+
+/* --- Scrollbar --- */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #27272a;
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3f3f46;
+}
+
+/* --- Selection --- */
+::selection {
+  background-color: rgba(59, 130, 246, 0.3);
+  color: #fafafa;
+}
+
+/* --- Skeleton Loading Shimmer --- */
+@keyframes shimmer {
+  0% { background-position: -200px 0; }
+  100% { background-position: 200px 0; }
+}
+
+.skeleton-card {
+  pointer-events: none;
+}
+
+.skeleton-line {
+  background: linear-gradient(90deg, #1c1c1e 25%, #27272a 50%, #1c1c1e 75%);
+  background-size: 400px 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+}
+
+/* --- Refresh Button --- */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.refresh-btn:hover:not(:disabled) {
+  color: #fafafa !important;
+  border-color: #3f3f46 !important;
+}
+
+.refresh-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed !important;
+}
+
+.refresh-btn.spinning svg {
+  animation: spin 0.8s linear infinite;
+}
+
+/* --- Load More Button --- */
+.load-more-btn:hover:not(:disabled) {
+  background-color: #27272a !important;
+  border-color: #3f3f46 !important;
+}
+
+.load-more-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed !important;
+}
+
+/* --- Pagination Buttons --- */
+.page-btn:hover:not(:disabled):not(.active) {
+  background-color: #27272a !important;
+  border-color: #3f3f46 !important;
+  color: #fafafa !important;
+}
+
+.page-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed !important;
+}
+
+.page-btn.active {
+  cursor: default;
+}
+
+/* --- Smooth Scroll --- */
+html {
+  scroll-behavior: smooth;
+}
